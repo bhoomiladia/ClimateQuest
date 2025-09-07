@@ -1,0 +1,148 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to use the new pastel green color palette from the provided image */
+  --background: #f2fae9; /* Honeydew - very light cream */
+  --foreground: #2d3436; /* Dark charcoal for text */
+  --card: #f2fae9;
+  --card-foreground: #2d3436;
+  --popover: #e7ffce; /* Nyanza - light mint */
+  --popover-foreground: #2d3436;
+  --primary: #a8d38d; /* Pistachio - deeper sage */
+  --primary-foreground: #f2fae9;
+  --secondary: #d8ffb1; /* Tea green - medium light */
+  --secondary-foreground: #2d3436;
+  --muted: #e7ffce;
+  --muted-foreground: #6b7c6b;
+  --accent: #b6da9f; /* Celadon - medium sage */
+  --accent-foreground: #f2fae9;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: #d8ffb1;
+  --input: #e7ffce;
+  --ring: #b6da9f;
+  --chart-1: #a8d38d;
+  --chart-2: #b6da9f;
+  --chart-3: #d8ffb1;
+  --chart-4: #e7ffce;
+  --chart-5: #f2fae9;
+  --radius: 0.75rem;
+  --sidebar: #f2fae9;
+  --sidebar-foreground: #2d3436;
+  --sidebar-primary: #a8d38d;
+  --sidebar-primary-foreground: #f2fae9;
+  --sidebar-accent: #e7ffce;
+  --sidebar-accent-foreground: #2d3436;
+  --sidebar-border: #d8ffb1;
+  --sidebar-ring: #b6da9f;
+}
+
+@theme inline {
+  /* Added Inter and Poppins fonts for better typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-inter: var(--font-inter);
+  --font-poppins: var(--font-poppins);
+
+  /* Updated color palette to match the provided pastel green theme */
+  --color-honeydew: #f2fae9;
+  --color-nyanza: #e7ffce;
+  --color-tea-green: #d8ffb1;
+  --color-celadon: #b6da9f;
+  --color-pistachio: #a8d38d;
+  --color-charcoal: #2d3436;
+  --color-sage-dark: #6b7c6b;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* Elegant animations replacing glow effects */
+@keyframes gentle-float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-gentle-float {
+  animation: gentle-float 6s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out;
+}
+
+/* Updated gradient backgrounds using the new pastel green palette */
+.bg-pastel-gradient {
+  background: linear-gradient(135deg, #f2fae9 0%, #e7ffce 25%, #d8ffb1 50%, #b6da9f 75%, #a8d38d 100%);
+}
+
+.bg-sage-gradient {
+  background: linear-gradient(135deg, #b6da9f 0%, #a8d38d 100%);
+}
+
+.bg-mint-gradient {
+  background: linear-gradient(135deg, #e7ffce 0%, #d8ffb1 100%);
+}
