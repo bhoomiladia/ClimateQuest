@@ -159,36 +159,39 @@ export default function CommunityPage() {
                   value={taskText}
                   onChange={e => setTaskText(e.target.value)}
                 />
-                {taskText && (
-                  <div className="mt-3">
-                    <label className="flex gap-2 items-center cursor-pointer">
-                      <Camera className="h-4 w-4" />
-                      Upload Verification Photo
-                      <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
-                    </label>
+                  {taskText && (
+              <div className="mt-3">
+                <label className="flex gap-2 items-center cursor-pointer">
+                  <Camera className="h-4 w-4" />
+                  Upload Verification Photo
+                  <input type="file" accept="image/*" className="hidden" onChange={handleImageUpload} />
+                </label>
 
-                    {verificationImage && <img src={verificationImage} alt="preview" className="mt-2 h-20 rounded" />}
+                {verificationImage && <img src={verificationImage} alt="preview" className="mt-2 h-20 rounded" />}
 
-                    {verificationResult && (
-                      <div className="mt-2 p-2 border rounded bg-white/50">
-                        {verificationResult.success ? (
-                          <>
-                            <p>Status: {verificationResult.status}</p>
-                            <p>Points Earned: {verificationResult.points}</p>
-                            <pre className="text-xs">{verificationResult.raw_response}</pre>
-                          </>
-                        ) : (
-                          <p className="text-red-600">{verificationResult.message}</p>
-                        )}
-                      </div>
+                {verificationResult && (
+                  <div className="mt-2 p-2 border rounded bg-white/50">
+                    {verificationResult.success ? (
+                      <>
+                        <p>Status: {verificationResult.status}</p>
+                        <p>Points Earned: {verificationResult.points}</p>
+                        <pre className="text-xs">{verificationResult.raw_response}</pre>
+                      </>
+                    ) : (
+                      <p className="text-red-600">{verificationResult.message}</p>
                     )}
-
-                    <Button onClick={verifyTask} disabled={isVerifying || !verificationImage} className="mt-3">
-                      {isVerifying && <Loader2 className="animate-spin h-4 w-4 mr-2" />}
-                      {isVerifying ? "Verifying..." : "Verify & Earn Points"}
-                    </Button>
                   </div>
                 )}
+
+                {/* Show button only if verification hasn't succeeded yet */}
+                {!verificationResult?.success && (
+                  <Button onClick={verifyTask} disabled={isVerifying || !verificationImage} className="mt-3">
+                    {isVerifying && <Loader2 className="animate-spin h-4 w-4 mr-2" />}
+                    {isVerifying ? "Verifying..." : "Verify & Earn Points"}
+                  </Button>
+                )}
+              </div>
+            )}
 
                 <Button onClick={handleSharePost} disabled={!postContent && !verificationImage && !taskText} className="mt-4">
                   Share
