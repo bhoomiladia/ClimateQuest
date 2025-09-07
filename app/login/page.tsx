@@ -81,7 +81,7 @@ export default function LoginPage() {
               />
             </div>
             <div className="flex items-center justify-between text-sm">
-              <Link href="/forgot-password" className="text-pistachio hover:text-celadon transition-colors">
+              <Link href="/login" className="text-pistachio hover:text-celadon transition-colors">
                 Forgot password?
               </Link>
             </div>
