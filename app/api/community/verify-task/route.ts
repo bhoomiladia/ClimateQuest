@@ -55,7 +55,7 @@ FEEDBACK
 - [Feedback 1]
 - [Feedback 2]
 POINTS
-[Number of points to award, 0-100]`;
+[Number of points to award, [-100 to 100]`;
 
     // Send request to Groq
     const response = await client.chat.completions.create({
