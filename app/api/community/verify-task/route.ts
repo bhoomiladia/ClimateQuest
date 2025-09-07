@@ -45,15 +45,16 @@ export async function POST(req: NextRequest) {
     // AI Prompt
     const prompt = `**Eco Task Verification**
 Task: "${task}"
-Analyze the attached image to verify if the task was actually performed.
+Analyze the attached image to verify if the task was actually performed, If no clear evidence is found give 0 points.
+If a negative activity harmful to the environment is detected, mark the task as False regardless of task completion also give negative points.
 Respond exactly in this format:
-===VERIFICATION===
+VERIFICATION
 Status: [Verified | Unclear | False]
 Confidence: [XX]%
-===FEEDBACK===
+FEEDBACK
 - [Feedback 1]
 - [Feedback 2]
-===POINTS===
+POINTS
 [Number of points to award, 0-100]`;
 
     // Send request to Groq
