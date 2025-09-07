@@ -173,8 +173,7 @@ export default function CommunityPage() {
                   <div className="mt-2 p-2 border rounded bg-white/50">
                     {verificationResult.success ? (
                       <>
-                        <p>Status: {verificationResult.status}</p>
-                        <p>Points Earned: {verificationResult.points}</p>
+
                         <pre className="text-xs">{verificationResult.raw_response}</pre>
                       </>
                     ) : (
