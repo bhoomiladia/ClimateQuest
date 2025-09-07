@@ -79,7 +79,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-[#B6DA9F] pt-8 text-center">
-          <p className="text-[#4A7C59]">© 2024 ClimateQuest Mini. Empowering the next generation of climate heroes.</p>
+          <p className="text-[#4A7C59]">© 2025 ClimateQuest Mini. Empowering the next generation of climate heroes.</p>
         </div>
       </div>
     </footer>
